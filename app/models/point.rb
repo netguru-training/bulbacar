@@ -1,5 +1,5 @@
 class Point < ActiveRecord::Base
-  belongs_to :route
+  belongs_to :ride
 
   validates :name, presence: true
   validates :number, presence: true
