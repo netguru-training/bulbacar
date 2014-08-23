@@ -33,4 +33,4 @@ Point.create!(name: "Gdansk", number: 1, ride_id: r2.id, latitude: 32.458123, lo
 Point.create!(name: "Krakow", number: 2, ride_id: r2.id, latitude: 62.458123, longitude: 21.921312)
 Point.create!(name: "Sopot", number: 3, ride_id: r2.id, latitude: 54.458123, longitude: 18.921312)
 
-UserRide.create!(user_id: u5.id, ride_id: = r1.id, status: "pending")
+UserRide.create!(user_id: u5.id, ride_id: r1.id, status: "pending")
