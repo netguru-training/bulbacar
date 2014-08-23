@@ -1,4 +1,22 @@
 .row
   .col-lg-12
-    - cars.each do |car|
-      %p= car.brand
+    %table.table
+      %thead
+        %tr.info
+          %td Id
+          %td Brand
+          %td Model
+          %td Seats
+          %td
+            -if current_user.cars.empty?
+              = link_to "Add new car", new_user_car_path(current_user), class: 'btn btn-primary'
+            -else
+              %button.btn.btn.primary.disabled Add new car
+      %tbody
+      - cars.each do |car|
+        %tr
+          %td= car.id
+          %td= car.brand
+          %td= car.model
+          %td= car.seats
+          %td= link_to "Edit", edit_user_car_path(current_user, car)
