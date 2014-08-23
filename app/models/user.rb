@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   has_many :cars, foreign_key: 'owner_id'
   
   validates :firstname, :lastname, presence: true
+  
+  def cars?
+    cars.length >= 1
+  end
 end
