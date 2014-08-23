@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   resources :users do
     resources :cars
   end
-  resources :rides
+  resources :rides do
+    resources :user_rides
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

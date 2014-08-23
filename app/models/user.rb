@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :cars, foreign_key: 'owner_id'
+  has_many :user_rides
   
   validates :firstname, :lastname, presence: true
   
