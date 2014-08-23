@@ -1,7 +1,6 @@
 class RidesController < ApplicationController
-  # before_action :authenticate_user!, only: [:new, :edit, :update, :create]
 
-  expose(:rides)
+  expose(:rides) 
 
   def index
   end
