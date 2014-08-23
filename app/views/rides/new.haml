@@ -1,0 +1,17 @@
+.row
+  .col-sm-12
+    = simple_form_for(ride, html: { class: 'form-horizontal' }) do |f|
+      %h2 Route
+      = f.input :departure_at
+      = f.input :description
+      %h2 Starting Point
+      = f.simple_fields_for :points do |pf|
+        = pf.input :name
+        = pf.input :latitude
+        = pf.input :longitude
+      %h2 Ending Point
+      = f.simple_fields_for :points do |pf|
+        = pf.input :name
+        = pf.input :latitude
+        = pf.input :longitude
+      
