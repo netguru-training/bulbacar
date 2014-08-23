@@ -1,3 +1,4 @@
-cars.first.brand
-cars.first.model
-cars.first.seats
+.row
+  .col-lg-12
+    - cars.each do |car|
+      %p= car.brand

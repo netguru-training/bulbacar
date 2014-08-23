@@ -1,4 +1,4 @@
-class Users::CarsController < ApplicationController
+class CarsController < ApplicationController
 
   expose(:cars) { current_user.cars }
 
