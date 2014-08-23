@@ -1,5 +1,8 @@
 class Request < ActiveRecord::Base
-  has_one: user_id
-  has_one: route_id
-  has_one: status
+  STATUS = ['accepted', 'pending', 'rejected']
+
+  belongs_to :user
+  belongs_to :route
+
+  validates status, inclusion: { in: STATUS }
 end
