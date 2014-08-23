@@ -36,5 +36,11 @@ Point.create!(name: "Warszawa", number: 2, ride_id: r1, latitude: 12.458123, lon
 Point.create!(name: "Gdansk", number: 1, ride_id: r2, latitude: 32.458123, longitude: 17.921312)
 Point.create!(name: "Krakow", number: 2, ride_id: r2, latitude: 62.458123, longitude: 21.921312)
 Point.create!(name: "Sopot", number: 3, ride_id: r2, latitude: 54.458123, longitude: 18.921312)
+Point.create!(name: "Poznan", number: 1, ride_id: r3, latitude: 52.458123, longitude: 16.921312)
+Point.create!(name: "Warszawa", number: 2, ride_id: r3, latitude: 12.458123, longitude: 22.921312)
+Point.create!(name: "Gdansk", number: 1, ride_id: r4, latitude: 32.458123, longitude: 17.921312)
+Point.create!(name: "Krakow", number: 2, ride_id: r4, latitude: 62.458123, longitude: 21.921312)
+Point.create!(name: "Gdansk", number: 1, ride_id: r5, latitude: 32.458123, longitude: 17.921312)
+Point.create!(name: "Krakow", number: 2, ride_id: r5, latitude: 62.458123, longitude: 21.921312)
 
 UserRide.create!(user_id: u5, ride_id: r1, status: "pending")
