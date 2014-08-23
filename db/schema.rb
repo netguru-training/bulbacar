@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140823110303) do
+ActiveRecord::Schema.define(version: 20140823122353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20140823110303) do
     t.integer  "number"
     t.decimal  "latitude",   precision: 10, scale: 6
     t.decimal  "longitude",  precision: 10, scale: 6
-    t.integer  "route_id"
+    t.integer  "ride_id"
   end
 
   create_table "reviews", force: true do |t|
@@ -40,6 +40,22 @@ ActiveRecord::Schema.define(version: 20140823110303) do
     t.text     "comment"
     t.integer  "reviewer_id"
     t.integer  "reviewed_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rides", force: true do |t|
+    t.integer  "owner_id"
+    t.datetime "departure_at"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_rides", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "ride_id"
+    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
