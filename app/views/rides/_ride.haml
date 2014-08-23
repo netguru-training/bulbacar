@@ -3,9 +3,14 @@
   .panel-body
     .row
       .col-lg-3
-        = "#{ride.owner.firstname} #{ride.owner.lastname}" 
-      .col-lg-9
-        %p= "#{ride.points.first.name} => #{ride.points.last.name}"
-        %p= "departure at: #{ride.departure_at}"
+        .container
+          %h3= "#{ride.owner.firstname} #{ride.owner.lastname}" 
+      .col-lg-3
+        .span.center-aligned
+          %h2= ride.points.first.name
+          %span.glyphicon.glyphicon-arrow-down
+          %h2= ride.points.last.name
+      .col-lg-3
+        %h3= ride.departure_at
         %p= ride.description
         %button.btn.btn-default Apply
