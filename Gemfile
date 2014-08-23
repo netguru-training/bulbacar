@@ -24,12 +24,15 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
-# Use Devise 
+# Use Devise
 gem 'devise'
 # Use HAML
 gem 'haml'
 
 gem 'bootstrap-sass'
+
+gem 'decent_exposure'
+gem 'decent_decoration'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -42,4 +45,3 @@ gem 'bootstrap-sass'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
