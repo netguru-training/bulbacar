@@ -9,6 +9,10 @@
 # User.delete_all
 
 User.destroy_all
+Car.destroy_all
+Ride.destroy_all
+Point.destroy_all
+UserRide.destroy_all
 
 u1 = User.create!(email: 'user1@user.com', password: 'password', firstname: "Jan", lastname: "Nowak")
 u2 = User.create!(email: 'user2@user.com', password: 'password', firstname: "Mateusz", lastname: "Nowak")
@@ -34,3 +38,4 @@ Point.create!(name: "Krakow", number: 2, ride_id: r2, latitude: 62.458123, longi
 Point.create!(name: "Sopot", number: 3, ride_id: r2, latitude: 54.458123, longitude: 18.921312)
 
 UserRide.create!(user_id: u5, ride_id: r1, status: "pending")
+
