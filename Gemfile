@@ -37,6 +37,7 @@ gem 'bootstrap-sass'
 gem 'decent_exposure'
 gem 'decent_decoration'
 
+# Use simple_form
 gem 'simple_form'
 
 # Use ActiveModel has_secure_password
