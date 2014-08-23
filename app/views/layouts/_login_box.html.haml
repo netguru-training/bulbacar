@@ -6,6 +6,9 @@
     - if user_signed_in?
       %li{role: "presentation"}
         %a{href: "#", role: "menuitem", tabindex: "-1"} Account
+      - if current_user.cars?
+        %li{:role => "presentation"}
+          = link_to 'Rides', user_cars_path(current_user), { role: 'menuitem' }
       %li{:role => "presentation"}
         = link_to 'Cars', user_cars_path(current_user), { role: 'menuitem' }
       %li{role: "presentation"}
