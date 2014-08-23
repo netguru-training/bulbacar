@@ -1,7 +1,10 @@
-.navbar.navbar-default
-  .container
-    .navbar-header
-      %h1 Bulbacar
-      .collapse.navbar-collapse
-        %ul.nav.navbar-nav.navbar-right
-          %li= link_to "Menu", "#"
+%nav.navbar.navbar-default{ role: 'navigation' }
+  .navbar-header
+    %button.navbar-toggle{ data: { target: '.navbar-ex1-collapse', toggle: 'collapse' }, type: 'button' }
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    = link_to 'Bulbacar', root_url, class: 'navbar-brand'
+  .collapse.navbar-collapse.navbar-ex1-collapse
+    = render partial: 'layouts/login_box'
