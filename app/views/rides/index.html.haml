@@ -1,0 +1,16 @@
+.col-sm-12
+  %table
+    %tr
+      %th Date
+      %th Start
+      %th End
+      %th Owner
+      %th Description
+      
+    - rides.each do |ride|
+      %tr
+        %td= ride.departure_at
+        %td 
+        %td
+        %td= ride.owner
+        %td= ride.description
