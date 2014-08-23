@@ -30,6 +30,7 @@ gem 'devise'
 gem 'haml'
 # Heroku gems
 gem 'rails_12factor', group: :production
+gem 'unicorn'
 
 gem 'bootstrap-sass'
 
