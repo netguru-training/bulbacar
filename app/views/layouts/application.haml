@@ -10,7 +10,9 @@
     %title Bulbacar
 
   %body
+    = render partial: 'layouts/navbar'
     %p.notice= notice
     %p.alert= alert
     
-    = yield
+    .container
+      = yield
