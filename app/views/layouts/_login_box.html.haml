@@ -2,14 +2,14 @@
   %button#dropdownMenu1.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
     = user_signed_in? ? "Hello,  #{ current_user.firstname }" : 'Menu'
     %span.caret
-  %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1", :role => "menu"}
+  %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1", role: "menu"}
     - if user_signed_in?
-      %li{:role => "presentation"}
-        %a{:href => "#", :role => "menuitem"} Account
+      %li{role: "presentation"}
+        %a{href: "#", role: "menuitem", tabindex: "-1"} Account
       %li{:role => "presentation"}
         = link_to 'Cars', user_cars_path(current_user), { role: 'menuitem' }
-      %li{:role => "presentation"}
-        = link_to 'Logout', destroy_user_session_path, :method => :delete, :role => "menuitem", :tabindex => "-1"
-    - else
-      %li{:role => "presentation"}
-        %a{:href => new_user_session_path, :role => "menuitem", :tabindex => "-1"} Get-in
+      %li{role: "presentation"}
+        = link_to 'Logout', destroy_user_session_path, method: :delete, role: "menuitem", tabindex: "-1"
+    - else 
+      %li{role: "presentation"}
+        %a{href: new_user_session_path, role: "menuitem", tabindex: "-1"} Get-in
