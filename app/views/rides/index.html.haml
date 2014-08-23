@@ -1,22 +1,5 @@
-.col-sm-12
-  %table
-    %tr
-      %th Date
-      %th Start
-      %th End
-      %th Owner E-mail
-      %th First name
-      %th Last name
-      %th Description
-      %th 
-      
-    - rides.each do |ride|
-      %tr
-        %td= ride.departure_at
-        %td= ride.points.first.name
-        %td= ride.points.last.name 
-        %td= ride.owner.email 
-        %td= ride.owner.firstname
-        %td= ride.owner.lastname
-        %td= ride.description
-        %td
+.row
+  .col-sm-12
+    - if rides
+      - rides.each do |ride|
+        = render partial: 'rides/ride', locals: { ride: ride }

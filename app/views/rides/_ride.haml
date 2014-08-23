@@ -1,0 +1,11 @@
+.panel.panel-default
+  .panel-heading= ride.owner.email
+  .panel-body
+    .row
+      .col-lg-3
+        = "#{ride.owner.firstname} #{ride.owner.lastname}" 
+      .col-lg-9
+        %p= "#{ride.points.first.name} => #{ride.points.last.name}"
+        %p= "departure at: #{ride.departure_at}"
+        %p= ride.description
+        %button.btn.btn-default Apply
