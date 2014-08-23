@@ -28,6 +28,8 @@ gem 'spring',        group: :development
 gem 'devise'
 # Use HAML
 gem 'haml'
+# Heroku gems
+gem 'rails_12factor', group: :production
 
 gem 'bootstrap-sass'
 
