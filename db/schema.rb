@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 20140823100255) do
     t.decimal  "longitude",  precision: 10, scale: 6
   end
 
+  create_table "requests", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "route_id"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "routes", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
