@@ -20,10 +20,10 @@ u3 = User.create!(email: 'user3@user.com', password: 'password', firstname: "Dam
 u4 = User.create!(email: 'user4@user.com', password: 'password', firstname: "Paweł", lastname: "Nowak")
 u5 = User.create!(email: 'user5@user.com', password: 'password', firstname: "Michał", lastname: "Nowak")
 
-Car.create!(owner: u1, brand: "Mercedes", model: "S-klasse", seats: 5)
-Car.create!(owner: u2, brand: "Audi", model: "A5", seats: 3)
-Car.create!(owner: u3, brand: "Ford", model: "Escort", seats: 2)
-Car.create!(owner: u4, brand: "Toyota", model: "Prius", seats: 4)
+Car.create!(owner_id: u1, brand: "Mercedes", model: "S-klasse", seats: 5)
+Car.create!(owner_id: u2, brand: "Audi", model: "A5", seats: 3)
+Car.create!(owner_id: u3, brand: "Ford", model: "Escort", seats: 2)
+Car.create!(owner_id: u4, brand: "Toyota", model: "Prius", seats: 4)
 
 r1 = Ride.create!(departure_at: Time.now, owner: u2, description: "Jade na wakacje!")
 r2 = Ride.create!(departure_at: Time.now, owner: u2, description: "Jade do babci!")
