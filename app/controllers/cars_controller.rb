@@ -1,6 +1,7 @@
 class CarsController < ApplicationController
 
   expose(:cars) { current_user.cars }
+  expose(:car)
 
 
 
@@ -21,6 +22,9 @@ class CarsController < ApplicationController
   #     render action: 'edit'
   #   end
   # end
+
+  def new
+  end
 
   def index
   end
