@@ -8,7 +8,7 @@
         %a{href: "#", role: "menuitem", tabindex: "-1"} Account
       - if current_user.cars?
         %li{:role => "presentation"}
-          = link_to 'Rides', user_cars_path(current_user), { role: 'menuitem' }
+          = link_to 'Create Ride', new_ride_path, { role: 'menuitem' }
       %li{:role => "presentation"}
         = link_to 'Cars', user_cars_path(current_user), { role: 'menuitem' }
       %li{role: "presentation"}
