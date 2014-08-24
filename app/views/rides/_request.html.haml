@@ -15,7 +15,6 @@
           %span.text-uppercase.btn.btn-warning= request.status
       .col-sm-12.col-lg-4
         .pull-right
-          = link_to 'Show user', user_path(request.user), class: 'btn btn-primary'
           - unless request.status == 'accepted'
             = link_to 'Approve', accept_ride_user_ride_path(request.ride, request), method: :post, class: 'btn btn-success'
           - unless request.status == 'rejected'
