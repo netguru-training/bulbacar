@@ -20,7 +20,7 @@
         - if UserRide.alreadyrequested?(current_user, ride)
           .alert.alert-info You requested a place for this ride.
         - else
-          = link_to 'Request', ride_user_rides_path(ride), method: :post, class: 'btn btn-primary'
+          = link_to 'I want to ride!', ride_user_rides_path(ride), method: :post, class: "btn btn-primary"
   .panel-footer
     .row
       .col-lg-3
