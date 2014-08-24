@@ -1,11 +1,22 @@
 .panel.panel-default
   .panel-body
-    = request.user.firstname
-    = request.user.lastname
-    = '(' + request.user.email + ')'
-    .pull-right
-      = link_to 'Show user', user_path(request.user), class: 'btn btn-primary'
-      = link_to 'Approve', accept_ride_user_ride_path(request.ride, request), method: :post, class: 'btn btn-success'
-      = link_to 'Reject', reject_ride_user_ride_path(request.ride, request) , class: 'btn btn-danger'
-
-
+    .row
+      .col-sm-12.col-lg-4
+        = request.user.firstname
+        = request.user.lastname
+        = '(' + request.user.email + ')'
+      .col-sm-12.col-lg-4
+        Current status:
+        - if request.status == 'rejected'
+          %span.text-uppercase.btn.btn-danger= request.status
+        - elsif request.status == 'accepted'
+          %span.text-uppercase.btn.btn-success= request.status
+        - else 
+          %span.text-uppercase.btn.btn-warning= request.status
+      .col-sm-12.col-lg-4
+        .pull-right
+          = link_to 'Show user', user_path(request.user), class: 'btn btn-primary'
+          - unless request.status == 'accepted'
+            = link_to 'Approve', accept_ride_user_ride_path(request.ride, request), method: :post, class: 'btn btn-success'
+          - unless request.status == 'rejected'
+            = link_to 'Reject', reject_ride_user_ride_path(request.ride, request) , method: :post, class: 'btn btn-danger'
