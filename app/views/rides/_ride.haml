@@ -33,13 +33,12 @@
         .span.left_aligned
           %h4 Available seats:
     .row
-      .col-lg-3
+      .col-lg-6
         .span.left_aligned
           = car_name(ride.owner.car)
       .col-lg-3
         .span.left_aligned
           = car_free_seats(ride.owner.car)
-      .col-lg-3
       .col-lg-3
         - if ride.owned_by?(current_user)
           - unless ride.finished?
