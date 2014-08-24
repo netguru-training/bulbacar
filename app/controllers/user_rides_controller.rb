@@ -4,14 +4,18 @@ class UserRidesController < ApplicationController
   expose(:user_ride) { ride.user_rides.build }
 
   def create
-    self.user_ride.status = 'pending'
-    self.user_ride.user = current_user
-
-    if user_ride.save
-      flash[:success] = 'Request sent'
-      redirect_to ride_path(ride)
+    if ride.owner = current_user
+       redirect_to rides_path, error: 'You can\'t request for your own ride!'
     else
-      redirect_to rides_path, error: 'Request couldn\'t be created'
+      self.user_ride.status = 'pending'
+      self.user_ride.user = current_user
+
+      if user_ride.save
+        flash[:success] = 'Request sent'
+        redirect_to ride_path(ride)
+      else
+        redirect_to rides_path, error: 'Request couldn\'t be created'
+      end
     end
   end
 

@@ -17,10 +17,13 @@
       .col-lg-6
         %h3= ride.departure_at.strftime("%A, %d %B %Y, %H:%M")
         %p= ride.description
-        - if UserRide.alreadyrequested?(current_user, ride)
-          .alert.alert-info You requested a place for this ride.
+        - unless current_user == ride.owner
+          - if UserRide.alreadyrequested?(current_user, ride)
+            .alert.alert-info You requested a place for this ride.
+          - else
+            = link_to 'I want to ride!', ride_user_rides_path(ride), method: :post, class: "btn btn-primary"
         - else
-          = link_to 'I want to ride!', ride_user_rides_path(ride), method: :post, class: "btn btn-primary"
+          = link_to 'This is your ride!', ride_path(ride), class: 'btn btn-warning'
   .panel-footer
     .row
       .col-lg-3
