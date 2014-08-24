@@ -19,17 +19,12 @@ Rails.application.routes.draw do
         post :reject
       end
     end
-    
-    resources :reviews do
-    end
-
+    resources :reviews
     member do
       post :finish
     end
   end
-  
-  resources :reviews do
-  end
+  resources :reviews
 
 
   # Example of regular route:
