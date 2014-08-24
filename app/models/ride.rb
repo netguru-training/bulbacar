@@ -14,7 +14,7 @@ class Ride < ActiveRecord::Base
   end
 
   def finished?
-    self.finished
+    !!self.finished
   end
 
   def finish!
@@ -34,5 +34,4 @@ class Ride < ActiveRecord::Base
   def end_point
     points.where(number: points.length - 1).first
   end
-
 end
