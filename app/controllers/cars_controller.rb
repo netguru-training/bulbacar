@@ -27,12 +27,6 @@ class CarsController < ApplicationController
     end
   end
 
-  def new
-  end
-
-  def index
-  end
-
   def destroy
     if self.car.destroy
       flash[:success] = 'Car deleted!'
