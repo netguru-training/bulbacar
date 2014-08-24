@@ -20,10 +20,10 @@ class UserRidesController < ApplicationController
     self.user_ride.status = 'accepted'
 
     if user_ride.save
-      flash[:success] = 'Request sent'
+      flash[:success] = 'You have accepted that request.'
       redirect_to ride_path(ride)
     else
-      render 'rides/show', error: 'Could not change the status'
+      redirect_to ride_path(ride), error: 'Could not change the status.'
     end
   end
 
@@ -33,10 +33,10 @@ class UserRidesController < ApplicationController
     
     self.user_ride.user = user_ride.user
     if user_ride.save
-      flash[:success] = 'Request sent'
+      flash[:success] = 'You have rejected that status'
       redirect_to ride_path(ride)
     else
-      render 'rides/show', error: 'Could not change the status'
+      redirect_to ride_path(ride), error: 'Could not change the status.'
     end
   end
 
