@@ -23,6 +23,7 @@ class Ride < ActiveRecord::Base
   end
 
   def owned_by?(user)
+    return false if user == nil
     user == owner
   end
 
