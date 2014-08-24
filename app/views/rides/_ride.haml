@@ -7,7 +7,7 @@
     .row
       .col-lg-3
         .container
-          %h3= "#{ride.owner.firstname} #{ride.owner.lastname}" 
+          %h3= "#{ride.owner.firstname} #{ride.owner.lastname}"
           = image_tag(ride.owner.gravatar)
       .col-lg-3
         .span.center-aligned
@@ -21,3 +21,18 @@
           .alert.alert-info You requested a place for this ride.
         - else
           = link_to 'Request', ride_user_rides_path(ride), method: :post, class: 'btn btn-primary'
+  .panel-footer
+    .row
+      .col-lg-3
+        .span.left_aligned
+          %h4 Car:
+      .col-lg-3
+        .span.left_aligned
+          %h4 Available seats:
+    .row
+      .col-lg-3
+        .span.left_aligned
+          = ride.owner.car.brand + ' ' + ride.owner.car.model
+      .col-lg-3
+        .span.left_aligned
+          = ride.owner.car.seats - 1
