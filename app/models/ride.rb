@@ -1,4 +1,5 @@
 class Ride < ActiveRecord::Base
+
   belongs_to :owner, class_name: "User"
   has_many :points
   has_many :user_rides
@@ -24,4 +25,13 @@ class Ride < ActiveRecord::Base
   def owned_by?(user)
     user.id == owner.id
   end
+
+  def start_point
+    points.where(number: 0).first
+  end
+
+  def end_point
+    points.where(number: points.length - 1).first
+  end
+
 end
