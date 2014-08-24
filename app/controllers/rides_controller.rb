@@ -7,9 +7,11 @@ class RidesController < ApplicationController
   expose(:starting_point, model: :point)
   expose(:ending_point, model: :point)
 
+  helper CarsHelper
+
   def index
   end
-  
+
   def new
   end
   
@@ -25,6 +27,22 @@ class RidesController < ApplicationController
   
   def ride_params
       params.require(:ride).permit(:departure_at, :description, :owner_id, points_attributes: [:id, :name, :latitude, :longitude, :_destroy])
+  end
+
+  def finish
+    if owner?
+      ride.finish!
+      redirect_to ride_path(ride)
+    else
+      flash[:error] = "You don't have authorization to finish this ride"
+      redirect_to ride_path(ride)
+    end
+  end
+
+  private
+
+  def owner?
+    current_user == ride.owner
   end
 
 end

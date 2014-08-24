@@ -26,16 +26,23 @@
           = link_to 'This is your ride!', ride_path(ride), class: 'btn btn-warning'
   .panel-footer
     .row
-      .col-lg-3
+      .col-lg-6
         .span.left_aligned
           %h4 Car:
-      .col-lg-3
+      .col-lg-6
         .span.left_aligned
           %h4 Available seats:
     .row
       .col-lg-3
         .span.left_aligned
-          = ride.owner.car.brand + ' ' + ride.owner.car.model
+          = car_name(ride.owner.car)
       .col-lg-3
         .span.left_aligned
-          = ride.owner.car.seats - 1
+          = car_free_seats(ride.owner.car)
+      .col-lg-3
+      .col-lg-3
+        - if current_user == ride.owner
+          - unless ride.finished?
+            = link_to "Finish ride", finish_ride_path(ride), method: :post, class: "btn btn-primary"
+          - else
+            %button.btn.btn.primary.disabled Ride finished

@@ -3,6 +3,8 @@ class Ride < ActiveRecord::Base
   has_many :points
   has_many :user_rides
 
+  accepts_nested_attributes_for :points, :reject_if => :all_blank, :allow_destroy => true
+
   validates :departure_at, presence: true
   validates :description, presence: true
 
@@ -10,8 +12,12 @@ class Ride < ActiveRecord::Base
     Time.now < departure_at
   end
 
-  accepts_nested_attributes_for :points, :reject_if => :all_blank, :allow_destroy => true
-  validates :departure_at, presence: true
-  validates :description, presence: true 
-   
+  def finished?
+    self.finished
+  end
+
+  def finish!
+    self.finished = true
+    self.save
+  end
 end

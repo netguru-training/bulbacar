@@ -4,7 +4,6 @@ class CarsController < ApplicationController
   expose(:car)
 
 
-
   def create
     self.car = Car.new(car_params)
 
