@@ -14,7 +14,7 @@ class CarsController < ApplicationController
       redirect_to user_cars_path(current_user)
     else
       render action: 'new'
-      flash[:error]: = "Couldn't create the car!"
+      flash[:error] = "Couldn't create the car!"
     end
   end
 
@@ -24,7 +24,7 @@ class CarsController < ApplicationController
       redirect_to user_cars_path(current_user)
     else
       render action: 'edit'
-      flahs[:error] = "Couldn't update the car!"
+      flash[:error] = "Couldn't update the car!"
     end
   end
 
