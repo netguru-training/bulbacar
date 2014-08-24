@@ -50,6 +50,9 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.2.1)
+    gravatar-ultimate (2.0.0)
+      activesupport (>= 2.3.14)
+      rack
     haml (4.0.5)
       tilt
     hike (1.2.3)
@@ -149,6 +152,7 @@ DEPENDENCIES
   decent_decoration
   decent_exposure
   devise
+  gravatar-ultimate
   haml
   jbuilder (~> 2.0)
   jquery-rails

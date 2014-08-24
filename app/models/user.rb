@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
   def cars?
     cars.length >= 1
   end
+
+  def gravatar
+    Gravatar.new(email).image_url
+  end
 end

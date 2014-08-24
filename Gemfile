@@ -37,6 +37,8 @@ gem 'bootstrap-sass'
 gem 'decent_exposure'
 gem 'decent_decoration'
 
+gem 'gravatar-ultimate'
+
 # Use simple_form
 gem 'simple_form'
 
