@@ -40,7 +40,12 @@ gem 'decent_decoration'
 gem 'gravatar-ultimate'
 
 # Use simple_form
-gem 'simple_form'
+gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form', branch: 'master'
+gem 'cocoon'
+
+# Datetime picker
+gem 'momentjs-rails', '>= 2.8.1', :github => 'derekprior/momentjs-rails'
+gem 'datetimepicker-rails', :git => 'git://github.com/zpaulovics/datetimepicker-rails.git', :branch => 'master', :submodules => true
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -53,3 +58,6 @@ gem 'simple_form'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'pry'
+gem 'pry-nav'
