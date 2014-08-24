@@ -5,7 +5,7 @@
       = render partial: 'rides/request', locals: { request: request }
   - else
     %p Nobody requested for this ride yet. 
-- elsif ride.request_status(current_user) != nil
+- elsif ride.user_rides.alreadyrequested?(current_user, ride)
   %h3 Your request for this ride:
   Status:
   %span.text-uppercase.btn.btn-primary= ride.request_status(current_user)
