@@ -11,9 +11,9 @@
           = image_tag(ride.owner.gravatar)
       .col-lg-3
         .span.center-aligned
-          %h2= ride.points.first.name
+          %h2= start_point(ride.points).name
           %span.glyphicon.glyphicon-arrow-down
-          %h2= ride.points.last.name
+          %h2= end_point(ride.points).name
       .col-lg-6
         %h3= ride.departure_at.strftime("%A, %d %B %Y, %H:%M")
         %p= ride.description

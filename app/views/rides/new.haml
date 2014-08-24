@@ -1,17 +1,19 @@
 .row
-  .col-sm-12
-    = simple_form_for(ride, html: { class: 'form-horizontal' }) do |f|
-      %h2 Route
-      = f.input :departure_at
+  .col-sm-12.col-md-8.col-md-push-2 
+    = simple_form_for ride, html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: { check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_boolean } do |f|
+      = f.hidden_field :owner_id, value: current_user.id
+      %h3 Route
+      = f.input :departure_at, :as => :datetime_picker
       = f.input :description
-      %h2 Starting Point
-      = f.simple_fields_for :points do |pf|
-        = pf.input :name
-        = pf.input :latitude
-        = pf.input :longitude
-      %h2 Ending Point
-      = f.simple_fields_for :points do |pf|
-        = pf.input :name
-        = pf.input :latitude
-        = pf.input :longitude
-      
+      #points
+        %h3 Starting Point
+        = f.simple_fields_for :points, starting_point do |point|
+          = render partial: 'point_fields', locals: { f: point, intermediate: false }
+        .links
+          = link_to_add_association 'Add intermediate point', f, :points
+        %h3 Ending Point
+        = f.simple_fields_for :points, ending_point do |point|
+          = render partial: 'point_fields', locals: { f: point, intermediate: false }
+
+      = f.submit
+
