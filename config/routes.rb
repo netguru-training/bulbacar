@@ -13,8 +13,14 @@ Rails.application.routes.draw do
     resources :cars
   end
   resources :rides do
-    resources :user_rides
+    resources :user_rides do
+      member do
+        post :accept
+        post :reject
+      end
+    end
   end
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

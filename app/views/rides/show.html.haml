@@ -1,9 +1,10 @@
 = render partial: 'rides/ride', locals: { ride: ride, show_link: false }
 .row  
   .col-sm-12
-    %h3 Requests for this ride
-    -# if user_rides
-      -# user_rides.each do |user_ride|
-        =# render partial: 'rides/request'
-    -# else
-      %p Nobody requested for this ride yet.
+    - if current_user == ride.owner
+      %h3 Requests for this ride
+      - if requests
+        - requests.each do |request|
+          = render partial: 'rides/request', locals: { request: request }
+      - else
+        %p Nobody requested for this ride yet.

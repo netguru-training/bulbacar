@@ -1,0 +1,11 @@
+.panel.panel-default
+  .panel-body
+    = request.user.firstname
+    = request.user.lastname
+    = '(' + request.user.email + ')'
+    .pull-right
+      = link_to 'Show user', user_path(request.user), class: 'btn btn-primary'
+      = link_to 'Approve', accept_ride_user_ride_path(request.ride, request), method: :post, class: 'btn btn-success'
+      = link_to 'Reject', reject_ride_user_ride_path(request.ride, request) , class: 'btn btn-danger'
+
+

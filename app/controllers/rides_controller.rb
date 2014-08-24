@@ -3,6 +3,7 @@ class RidesController < ApplicationController
 
   expose(:rides)
   expose(:ride)
+  expose(:requests) { ride.user_rides }
 
   def index
   end

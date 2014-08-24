@@ -14,6 +14,26 @@ class UserRidesController < ApplicationController
     end
   end
 
+  def accept
+    self.user_ride.status = 'accepted'
+
+    if user_ride.save
+      render 'rides/show', success: 'You have accepted this reuqest'
+    else
+      render 'rides/show', error: 'Could not change the status'
+    end
+  end
+
+  def reject
+    self.user_ride.status = 'rejected'
+
+    if user_ride.save
+      render 'rides/show', success: 'You have rejected this reuqest'
+    else
+      render 'rides/show', error: 'Could not change the status'
+    end
+  end
+
   private
     def user_ride_params
       params.require(:user_ride).permit(:status)
