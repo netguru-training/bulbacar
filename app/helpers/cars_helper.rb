@@ -6,6 +6,7 @@ module CarsHelper
   end
 
   def car_free_seats(car)
+    return '' if car.nil?
     car.seats - 1
   end
 end
