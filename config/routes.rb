@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   root to: "rides#index"
 
   resources :users do
+    member do
+      get :rides
+    end
     resources :cars
   end
   resources :rides do

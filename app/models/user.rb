@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :cars, foreign_key: 'owner_id'
   has_many :user_rides
-
+  has_many :rides, foreign_key: 'owner_id'
+  
   validates :firstname, :lastname, presence: true
 
   def cars?

@@ -1,0 +1,4 @@
+.row
+  .col-sm-12
+    - user_rides.each do |ride|
+      = render partial: 'rides/ride', locals: { ride: ride }

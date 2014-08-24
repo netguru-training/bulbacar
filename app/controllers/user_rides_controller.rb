@@ -14,7 +14,6 @@ class UserRidesController < ApplicationController
     end
   end
 
-
   private
     def user_ride_params
       params.require(:user_ride).permit(:status)
