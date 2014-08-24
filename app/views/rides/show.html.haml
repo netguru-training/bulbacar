@@ -1,5 +1,4 @@
 = render partial: 'rides/ride', locals: { ride: ride, show_link: false }
 .row
   .col-sm-12
-    - if current_user == ride.owner
-      = render partial: 'rides/requests_list'
+    = render partial: 'rides/requests_list'

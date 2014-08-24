@@ -30,4 +30,9 @@ class Ride < ActiveRecord::Base
   def end_point
     points.where(number: points.length - 1).first
   end
+
+  def request_status(user)
+    user.user_rides(user_id: user.id).try(:last).try(:status)
+  end
+  
 end

@@ -25,5 +25,4 @@ class User < ActiveRecord::Base
   def attended_rides
     Ride.joins(:user_rides).where('rides.finished = ? AND user_rides.user_id = ? AND user_rides.status = ?', true, id, 'accepted')
   end
-  
 end
