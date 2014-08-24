@@ -1,7 +1,8 @@
 module CarsHelper
 
   def car_name(car)
-    car.brand + ' ' + car.model
+    return '' if car.nil?
+    "#{car.brand} #{car.model}"
   end
 
   def car_free_seats(car)
