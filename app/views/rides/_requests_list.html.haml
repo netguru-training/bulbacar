@@ -1,0 +1,6 @@
+%h3 Requests for this ride
+- if requests.first != nil
+  - requests.each do |request|
+    = render partial: 'rides/request', locals: { request: request }
+- else
+  %p Nobody requested for this ride yet.

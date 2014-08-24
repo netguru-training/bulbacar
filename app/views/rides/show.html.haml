@@ -2,9 +2,4 @@
 .row  
   .col-sm-12
     - if current_user == ride.owner
-      %h3 Requests for this ride
-      - if requests
-        - requests.each do |request|
-          = render partial: 'rides/request', locals: { request: request }
-      - else
-        %p Nobody requested for this ride yet.
+      = render partial: 'rides/requests_list'

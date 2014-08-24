@@ -4,8 +4,8 @@ class UserRidesController < ApplicationController
   expose(:user_ride) { ride.user_rides.build }
 
   def create
-    if ride.owner = current_user
-       redirect_to rides_path, error: 'You can\'t request for your own ride!'
+    if ride.owner == current_user
+       redirect_to rides_path, error: "You can't request for your own ride!"
     else
       self.user_ride.status = 'pending'
       self.user_ride.user = current_user
