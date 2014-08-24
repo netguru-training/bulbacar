@@ -13,4 +13,7 @@
       .col-lg-6
         %h3= ride.departure_at.strftime("%A, %d %B %Y, %H:%M")
         %p= ride.description
-        = link_to 'Request', ride_user_rides_path(ride), method: :post
+        - if UserRide.alreadyrequested?(current_user, ride)
+          .alert.alert-info You requested a place for this ride.
+        - else
+          = link_to 'Request', ride_user_rides_path(ride), method: :post, class: "btn btn-primary"

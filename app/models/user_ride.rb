@@ -5,4 +5,10 @@ class UserRide < ActiveRecord::Base
   belongs_to :user
  
   validates :status, presence: true, inclusion: { in: STATUS }
+
+  private 
+
+  def self.alreadyrequested?(user_id, ride_id)
+    UserRide.exists?(user_id: user_id, ride_id: ride_id)
+  end
 end
