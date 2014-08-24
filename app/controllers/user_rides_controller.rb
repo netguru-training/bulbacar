@@ -4,9 +4,9 @@ class UserRidesController < ApplicationController
   expose(:user_ride) { ride.user_rides.build }
 
   def create
-    
+
     if ride.owned_by?(current_user)
-      redirect_to rides_path, error: "You can't request for your own ride!" 
+      redirect_to rides_path, error: "You can't request for your own ride!"
       return
     end
 
@@ -19,7 +19,7 @@ class UserRidesController < ApplicationController
     else
       redirect_to rides_path, error: "Request couldn't be created"
     end
-  
+
   end
 
   def accept
@@ -37,7 +37,7 @@ class UserRidesController < ApplicationController
   def reject
     self.user_ride = UserRide.find(params[:id])
     self.user_ride.status = 'rejected'
-    
+
     self.user_ride.user = user_ride.user
     if user_ride.save
       flash[:success] = 'You have rejected that status'
