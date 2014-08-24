@@ -10,4 +10,8 @@ class Ride < ActiveRecord::Base
     Time.now < departure_at
   end
 
+  accepts_nested_attributes_for :points, :reject_if => :all_blank, :allow_destroy => true
+  validates :departure_at, presence: true
+  validates :description, presence: true 
+   
 end
