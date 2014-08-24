@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/zpaulovics/datetimepicker-rails.git
+  revision: 21c2aebb917eba0c5d686749ee6754c769533402
+  branch: master
+  submodules: true
+  specs:
+    datetimepicker-rails (3.1.1)
+
+GIT
   remote: git://github.com/derekprior/momentjs-rails.git
   revision: 12f6d703d15a68228e8cd938a0a8a48c8f5e7a35
   specs:
@@ -13,14 +21,6 @@ GIT
     simple_form (3.1.0.rc2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
-
-GIT
-  remote: git://github.com/zpaulovics/datetimepicker-rails.git
-  revision: 21c2aebb917eba0c5d686749ee6754c769533402
-  branch: master
-  submodules: true
-  specs:
-    datetimepicker-rails (3.1.1)
 
 GEM
   remote: https://rubygems.org/
