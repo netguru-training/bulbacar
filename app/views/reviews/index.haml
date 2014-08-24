@@ -2,6 +2,6 @@
   .col-sm-12
     - if attended_rides
       - attended_rides.each do |ride|
-        = render partial: 'rides/ride', locals: { ride: ride, show_link: true }
+        = render partial: 'reviews/ride', locals: { ride: ride, show_link: true }
     - else
       %h You have not attended any ride yet!

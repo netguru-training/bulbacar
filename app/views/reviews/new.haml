@@ -1,0 +1,12 @@
+.row
+  .col-sm-12.col-md-8.col-md-push-2 
+    %h1 Review the Ride!
+    = simple_form_for review, html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: { check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_boolean } do |f|
+      = f.hidden_field :reviewer_id, value: current_user.id
+      = f.hidden_field :ride_id, value: params[:ride_id]
+      = f.input :rating
+      = f.input :comment
+      
+      = f.submit 'Review', class: 'btn btn-primary pull-right'
+
+    

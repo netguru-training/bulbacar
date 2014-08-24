@@ -1,7 +1,6 @@
 .panel.panel-default
   .panel-heading
     = ride.owner.email
-    - if show_link
   .panel-body
     .row
       .col-lg-3
@@ -15,5 +14,17 @@
           %h2= end_point(ride.points).name
       .col-lg-6
         %h3= ride.departure_at.strftime("%A, %d %B %Y, %H:%M")
-        %p= ride.description
+        %p= ride.description    
+    .panel-footer
+      .row
+        .col-lg-6
+          .span.left_aligned
+        - if reviewed?(ride.id)
+          .col-lg-6.col-lg-pull-3
+            %h3 Your review
+            %h4 Rating
+            = get_review(ride.id).rating
+            %h4 Comment
+            = get_review(ride.id).comment
+        - else
           = link_to 'Review!', new_ride_review_path(ride), class: "btn btn-primary"
