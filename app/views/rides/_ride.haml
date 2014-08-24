@@ -1,5 +1,7 @@
 .panel.panel-default
-  .panel-heading= ride.owner.email
+  .panel-heading
+    = ride.owner.email
+    = link_to 'Show this ride', ride_path(ride), class: "pull-right"
   .panel-body
     .row
       .col-lg-3
@@ -17,4 +19,4 @@
         - if UserRide.alreadyrequested?(current_user, ride)
           .alert.alert-info You requested a place for this ride.
         - else
-          = link_to 'Request', ride_user_rides_path(ride), method: :post, class: "btn btn-primary"
+          = link_to 'Request', ride_user_rides_path(ride), method: :post, class: 'btn btn-primary'
