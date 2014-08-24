@@ -8,7 +8,7 @@ class UserRidesController < ApplicationController
     self.user_ride.user = current_user
 
     if user_ride.save
-      redirect_to ride_path(ride), succes: 'Request sent'
+      redirect_to ride_path(ride), success: 'Request sent'
     else
       redirect_to rides_path, error: 'Request couldn\'t be created'
     end
