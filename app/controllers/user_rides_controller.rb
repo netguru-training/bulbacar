@@ -40,7 +40,7 @@ class UserRidesController < ApplicationController
 
     self.user_ride.user = user_ride.user
     if user_ride.save
-      flash[:success] = 'You have rejected that status'
+      flash[:success] = 'You have rejected that request'
       redirect_to ride_path(ride)
     else
       redirect_to ride_path(ride), error: 'Could not change the status.'
