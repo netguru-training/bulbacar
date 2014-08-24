@@ -14,6 +14,8 @@
           %li{:role => "presentation"}
             = link_to 'My Rides', rides_user_path(current_user), { role: 'menuitem' }
           %li{:role => "presentation"}
+            = link_to 'Reviews', reviews_path, { role: 'menuitem' }
+          %li{:role => "presentation"}
             = link_to 'Cars', user_cars_path(current_user), { role: 'menuitem' }
           %li{role: "presentation"}
             = link_to 'Logout', destroy_user_session_path, method: :delete, role: "menuitem", tabindex: "-1"
