@@ -20,4 +20,8 @@ class Ride < ActiveRecord::Base
     self.finished = true
     self.save
   end
+
+  def owned_by?(user)
+    user.id == owner.id
+  end
 end

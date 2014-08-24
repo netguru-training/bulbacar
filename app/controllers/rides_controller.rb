@@ -9,12 +9,6 @@ class RidesController < ApplicationController
 
   helper CarsHelper
 
-  def index
-  end
-
-  def new
-  end
-  
   def create
     points_hash = params[:ride].delete(:points_attributes)
     if ride.save
@@ -30,19 +24,13 @@ class RidesController < ApplicationController
   end
 
   def finish
-    if owner?
-      ride.finish!
+    self.ride = Ride.find(params[:id])
+    if self.ride.owned_by?(current_user)
+      self.ride.finish!
       redirect_to ride_path(ride)
     else
       flash[:error] = "You don't have authorization to finish this ride"
       redirect_to ride_path(ride)
     end
   end
-
-  private
-
-  def owner?
-    current_user == ride.owner
-  end
-
 end

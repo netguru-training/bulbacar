@@ -17,10 +17,14 @@ Rails.application.routes.draw do
       member do
         post :accept
         post :reject
-        post :finish
       end
     end
+    
     resources :reviews do
+    end
+
+    member do
+      post :finish
     end
   end
   
