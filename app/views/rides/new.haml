@@ -10,10 +10,10 @@
         = f.simple_fields_for :points, starting_point do |point|
           = render partial: 'point_fields', locals: { f: point, intermediate: false }
         .links
-          = link_to_add_association 'Add intermediate point', f, :points
+          = link_to_add_association 'Add intermediate point', f, :points, class: 'btn btn-default pull-right'
         %h3 Ending Point
         = f.simple_fields_for :points, ending_point do |point|
           = render partial: 'point_fields', locals: { f: point, intermediate: false }
 
-      = f.submit
+      = f.submit 'Create', class: 'btn btn-primary pull-right'
 

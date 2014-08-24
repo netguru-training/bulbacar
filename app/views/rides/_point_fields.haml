@@ -4,4 +4,4 @@
   = f.input :name
   = f.input :latitude
   = f.input :longitude
-  = link_to_remove_association "Remove intermediate point", f unless defined?(intermediate)
+  = link_to_remove_association "Remove intermediate point", f, class: 'btn btn-default pull-right margin-left' unless defined?(intermediate)
