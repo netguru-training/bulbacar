@@ -14,7 +14,7 @@ class UserRidesController < ApplicationController
         flash[:success] = 'Request sent'
         redirect_to ride_path(ride)
       else
-        redirect_to rides_path, error: 'Request couldn\'t be created'
+        redirect_to rides_path, error: "Request couldn't be created"
       end
     end
   end
