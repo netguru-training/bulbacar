@@ -1,12 +1,12 @@
 class UserRide < ActiveRecord::Base
   STATUS = ['accepted', 'pending', 'rejected', 'finished']
- 
+
   belongs_to :ride
   belongs_to :user
- 
-  validates :status, presence: true, inclusion: { in: STATUS }
 
-  private 
+  validates :status, inclusion: { in: STATUS }
+
+  private
 
   def self.alreadyrequested?(user_id, ride_id)
     UserRide.exists?(user_id: user_id, ride_id: ride_id)
