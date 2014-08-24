@@ -5,7 +5,7 @@ class UserRidesController < ApplicationController
 
   def create
     
-    if ride.owned_by(current_user)
+    if ride.owned_by?(current_user)
       redirect_to rides_path, error: "You can't request for your own ride!" 
       return
     end

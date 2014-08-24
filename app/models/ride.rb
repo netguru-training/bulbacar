@@ -23,7 +23,7 @@ class Ride < ActiveRecord::Base
   end
 
   def owned_by?(user)
-    user.id == owner.id
+    user == owner
   end
 
   def start_point
