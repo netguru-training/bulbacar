@@ -44,14 +44,8 @@
           = car_name(ride.owner.car)
       .col-lg-3
         .span.left_aligned
-          = car_free_seats(ride.owner.car)
+          = ride.seats_available
       .col-lg-3
-      .col-lg-3
-        - if current_user == ride.owner
-          - unless ride.finished?
-            = link_to "Finish ride", finish_ride_path(ride), method: :post, class: "btn btn-primary"
-          - else
-            %button.btn.btn.primary.disabled Ride finished
     - if ride.finished?
       .row
         .col-lg-6

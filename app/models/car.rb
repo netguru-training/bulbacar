@@ -6,5 +6,5 @@ class Car < ActiveRecord::Base
   validates :brand, presence: true
   validates :model, presence: true
   validates :seats, inclusion: { in: AVAILABLE_SEATS }
-  
+
 end

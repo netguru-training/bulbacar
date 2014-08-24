@@ -6,6 +6,8 @@ class UserRide < ActiveRecord::Base
 
   validates :status, inclusion: { in: STATUS }
 
+  scope :accepted, -> { where(status: 'accepted') }
+
   def self.alreadyrequested?(user_id, ride_id)
     UserRide.exists?(user_id: user_id, ride_id: ride_id)
   end

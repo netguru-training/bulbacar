@@ -34,5 +34,10 @@ class Ride < ActiveRecord::Base
   def request_status(user)
     user.user_rides(user_id: user.id).try(:last).try(:status)
   end
-  
+
+  def seats_available
+    return 0 unless owner.cars.any?
+    owner.car.seats - user_rides.accepted.count
+  end
+
 end

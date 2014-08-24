@@ -35,6 +35,14 @@ ActiveRecord::Schema.define(version: 20140824130456) do
     t.integer  "ride_id"
   end
 
+  create_table "requests", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "route_id"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "reviews", force: true do |t|
     t.integer  "rating"
     t.text     "comment"
@@ -51,6 +59,14 @@ ActiveRecord::Schema.define(version: 20140824130456) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "finished",     default: false
+  end
+
+  create_table "routes", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "departure_date"
+    t.text     "description"
+    t.integer  "user_id"
   end
 
   create_table "user_rides", force: true do |t|
