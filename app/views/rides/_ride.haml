@@ -10,7 +10,7 @@
           %h2= ride.points.first.name
           %span.glyphicon.glyphicon-arrow-down
           %h2= ride.points.last.name
-      .col-lg-3
-        %h3= ride.departure_at
+      .col-lg-6
+        %h3= ride.departure_at.strftime("%A, %d %B %Y, %H:%M")
         %p= ride.description
         = link_to 'Request', ride_user_rides_path(ride), method: :post
