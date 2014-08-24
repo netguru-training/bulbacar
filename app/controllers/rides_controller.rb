@@ -2,7 +2,7 @@ class RidesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   expose(:requests) { ride.user_rides }
-  expose(:rides) 
+  expose(:rides) { Ride.order("departure_at ASC") } 
   expose(:ride, attributes: :ride_params)
   expose(:starting_point, model: :point)
   expose(:ending_point, model: :point)
