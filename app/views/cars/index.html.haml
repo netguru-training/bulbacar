@@ -8,6 +8,7 @@
           %td Model
           %td Seats
           %td
+          %td
             -if current_user.cars.empty?
               = link_to "Add new car", new_user_car_path(current_user), class: 'btn btn-primary'
             -else
@@ -19,4 +20,5 @@
           %td= car.brand
           %td= car.model
           %td= car.seats
-          %td= link_to "Edit", edit_user_car_path(current_user, car)
+          %td= link_to "Edit", edit_user_car_path(current_user, car), class: 'btn btn-default'
+          %td= link_to "Destroy", [current_user, car], method: 'delete', class: 'btn btn-danger'

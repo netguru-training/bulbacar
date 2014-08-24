@@ -1,0 +1,8 @@
+= simple_form_for([current_user, car], html: {class: 'form-horizontal' }) do |f|
+  = f.input :brand, label: 'Brand'
+  = f.input :model, label: 'Model'
+  = f.input :seats, label: 'Number of seats', collection: Car::AVAILABLE_SEATS, default: Car::AVAILABLE_SEATS[0]
+  %br
+  %p
+    = f.button :submit, class: 'btn btn-primary'
+    = link_to 'Cancel', :back, class: 'btn btn-default'
