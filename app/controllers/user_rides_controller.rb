@@ -8,7 +8,8 @@ class UserRidesController < ApplicationController
     self.user_ride.user = current_user
 
     if user_ride.save
-      redirect_to ride_path(ride), success: 'Request sent'
+      flash[:success] = 'Request sent'
+      redirect_to ride_path(ride)
     else
       redirect_to rides_path, error: 'Request couldn\'t be created'
     end
@@ -19,7 +20,8 @@ class UserRidesController < ApplicationController
     self.user_ride.status = 'accepted'
 
     if user_ride.save
-      redirect_to ride_path(ride), success: 'You have accepted this request'
+      flash[:success] = 'Request sent'
+      redirect_to ride_path(ride)
     else
       render 'rides/show', error: 'Could not change the status'
     end
@@ -31,7 +33,8 @@ class UserRidesController < ApplicationController
     
     self.user_ride.user = user_ride.user
     if user_ride.save
-      redirect_to ride_path(ride), success: 'You have rejected this request'
+      flash[:success] = 'Request sent'
+      redirect_to ride_path(ride)
     else
       render 'rides/show', error: 'Could not change the status'
     end
