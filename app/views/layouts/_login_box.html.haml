@@ -1,20 +1,22 @@
-.dropdown
-  %button#dropdownMenu1.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
-    = user_signed_in? ? "Hello,  #{ current_user.firstname }" : 'Menu'
-    %span.caret
-  %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1", role: "menu"}
-    - if user_signed_in?
-      %li{role: "presentation"}
-        %a{href: "#", role: "menuitem", tabindex: "-1"} Account
-      - if current_user.cars?
-        %li{:role => "presentation"}
-          = link_to 'Create Ride', new_ride_path, { role: 'menuitem' }
-      %li{:role => "presentation"}
-        = link_to 'My Rides', rides_user_path(current_user), { role: 'menuitem' }
-      %li{:role => "presentation"}
-        = link_to 'Cars', user_cars_path(current_user), { role: 'menuitem' }
-      %li{role: "presentation"}
-        = link_to 'Logout', destroy_user_session_path, method: :delete, role: "menuitem", tabindex: "-1"
-    - else 
-      %li{role: "presentation"}
-        %a{href: new_user_session_path, role: "menuitem", tabindex: "-1"} Get-in
+%ul.nav.navbar-nav.navbar-right
+  - if user_signed_in?
+    %li.dropdown
+      %a.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+        = user_signed_in? ? "Hello,  #{ current_user.firstname }" : 'Menu'
+        %span.caret
+      %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1", role: "menu"}
+        - if user_signed_in?
+          %li{role: "presentation"}
+            %a{href: "#", role: "menuitem", tabindex: "-1"} Account
+          - if current_user.cars?
+            %li{:role => "presentation"}
+              = link_to 'Create Ride', new_ride_path, { role: 'menuitem' }
+          %li{:role => "presentation"}
+            = link_to 'My Rides', rides_user_path(current_user), { role: 'menuitem' }
+          %li{:role => "presentation"}
+            = link_to 'Cars', user_cars_path(current_user), { role: 'menuitem' }
+          %li{role: "presentation"}
+            = link_to 'Logout', destroy_user_session_path, method: :delete, role: "menuitem", tabindex: "-1"
+  - else 
+    %li{role: "presentation"}
+      %a{href: new_user_session_path, role: "menuitem", tabindex: "-1"} Get-in
