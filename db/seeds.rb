@@ -26,11 +26,13 @@ Car.create!(owner_id: u2.id, brand: "Audi", model: "A5", seats: 3)
 Car.create!(owner_id: u3.id, brand: "Ford", model: "Escort", seats: 2)
 Car.create!(owner_id: u4.id, brand: "Toyota", model: "Prius", seats: 4)
 
-r1 = Ride.create!(departure_at: Time.now, owner: u2, description: "Jade na wakacje!")
-r2 = Ride.create!(departure_at: Time.now, owner: u2, description: "Jade do babci!")
-r3 = Ride.create!(departure_at: Time.now, owner: u3, description: "Jade bo mi się nudzi")
-r4 = Ride.create!(departure_at: Time.now, owner: u3, description: "Jade!")
-r5 = Ride.create!(departure_at: Time.now, owner: u1, description: "Jade bo tak!")
+time = Time.now + (60 * 60 * 8)
+
+r1 = Ride.create!(departure_at: time, owner: u2, description: "Jade na wakacje!")
+r2 = Ride.create!(departure_at: time, owner: u2, description: "Jade do babci!")
+r3 = Ride.create!(departure_at: time, owner: u3, description: "Jade bo mi się nudzi")
+r4 = Ride.create!(departure_at: time, owner: u3, description: "Jade!")
+r5 = Ride.create!(departure_at: time, owner: u1, description: "Jade bo tak!")
 
 Point.create!(name: "Poznan", number: 1, ride: r1, latitude: 52.458123, longitude: 16.921312)
 Point.create!(name: "Warszawa", number: 2, ride: r1, latitude: 12.458123, longitude: 22.921312)

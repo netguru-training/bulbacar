@@ -2,4 +2,5 @@
   .col-sm-12
     - if rides
       - rides.each do |ride|
-        = render partial: 'rides/ride', locals: { ride: ride, show_link: true }
+        - if ride.active?
+          = render partial: 'rides/ride', locals: { ride: ride, show_link: true }
