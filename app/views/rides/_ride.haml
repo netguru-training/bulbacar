@@ -1,7 +1,8 @@
 .panel.panel-default
   .panel-heading
     = ride.owner.email
-    = link_to 'Show this ride', ride_path(ride), class: "pull-right"
+    - if show_link
+      = link_to 'Show this ride', ride_path(ride), class: "pull-right"
   .panel-body
     .row
       .col-lg-3
