@@ -13,10 +13,6 @@ class Ride < ActiveRecord::Base
     Time.now < departure_at
   end
 
-  def finished?
-    !!self.finished
-  end
-
   def finish!
     self.finished = true
     self.save
