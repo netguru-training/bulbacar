@@ -20,6 +20,11 @@ Rails.application.routes.draw do
         post :finish
       end
     end
+    resources :reviews do
+    end
+  end
+  
+  resources :reviews do
   end
 
 
