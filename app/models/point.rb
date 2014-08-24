@@ -7,7 +7,8 @@ class Point < ActiveRecord::Base
   validates :longitude, presence: true
   
   def self.save_points( points_hash, ride_id )
-    points_hash.sort.to_h.each_with_index do | ( key, value ), index |
+    sorted_points_hash = Hash[points_hash.sort]
+    sorted_points_hash.each_with_index do | ( key, value ), index |
       point_number = point_number( key, index, points_hash.length )
       Point.create!( name: value[:name], latitude: value[:latitude], longitude: value[:longitude], ride_id: ride_id, number: point_number )
     end
